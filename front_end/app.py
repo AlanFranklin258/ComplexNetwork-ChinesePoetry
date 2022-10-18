@@ -6,12 +6,12 @@ from dash.dependencies import Input, Output
 import plotly.graph_objs as go
 import plotly.express as px
 
-from back_end.analyze_graph import compute_clustering_coefficient, show_vex_node_by_degree_descending, \
+from back_end.analyze_graph import show_vex_node_by_degree_descending, \
     show_vex_node_by_clustering_coefficient_descending, show_vex_node_by_coreness_descending
 from back_end.pre_process_graph import get_formal_data
 from back_end.produce_graph import get_graph
 
-app = Dash(external_stylesheets=[dbc.themes.QUARTZ])
+app = Dash(external_stylesheets=[dbc.themes.VAPOR])
 
 colors = {
     'background': '#111111',
@@ -96,27 +96,29 @@ app.layout = html.Div(
                                                 dcc.Markdown(
                                                     id='cytoscape-tapNodeData-output-markdown',
                                                     style={
-                                                        'color': '#FFFFFF',
+                                                        'color': '#000000',
                                                     }
                                                 ),
                                                 style={
-                                                    'height': '290px'
+                                                    'height': '290px',
+                                                    'backgroundColor': '#FDF5E6',
                                                 }
                                             ),
                                             dbc.Row(
                                                 dcc.Markdown(
                                                     id='cytoscape-tapEdgeData-output-markdown',
                                                     style={
-                                                        'color': '#FFFFFF',
+                                                        'color': '#000000',
                                                     }
                                                 ),
+                                                style={
+                                                    'height': '290px',
+                                                    'margin-top': '20px',
+                                                    'backgroundColor': '#FDF5E6',
+                                                }
                                             )
                                         ],
                                         width=4,
-                                        style={
-                                            'backgroundColor': '#C51162',
-                                            'opacity': '0.5'
-                                        }
                                     ),
                                 ]
                             )
